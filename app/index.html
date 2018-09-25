@@ -1,12 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html ng-app="myApp">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-<body>
-    <h2>Первая программа на JavaScript</h2>
+<body ng-controller="processController as vm">
+    <div class="page-header">
+        <h1>Процессы</h1>
+    </div>
+    <div class="panel">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>ID</th>
+                <th>Пользователь</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="process in vm.processes">
+                <td>{{process.name}}</td>
+                <td>{{process.ID}}</td>
+                <td>{{process.user}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/lib/angular.min.js"></script>
     <script>
-        alert('Привет мир!');
-    </script></body>
+        angular.module('myApp', []);
+    </script>
+    <script src="js/controllers/processController.js"></script>
+</body>
 </html>
