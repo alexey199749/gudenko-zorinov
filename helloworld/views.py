@@ -1,8 +1,11 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+
 
 def index(request):
-    return HttpResponse("Hello World!")
+    return render(request, "index.html")
 
-def users(request, name = ""):
+
+def users(request, name=""):
     output = "Hello {0}".format(name)
     return HttpResponse(output)
