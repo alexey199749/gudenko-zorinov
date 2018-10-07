@@ -1,5 +1,4 @@
 <!doctype html>
-{% load staticfiles %}
 <html ng-app="myApp">
 <head>
     <meta charset="utf-8">
@@ -19,19 +18,21 @@
             </tr>
             </thead>
             <tbody>
+            {% verbatim %}
             <tr ng-repeat="process in vm.processes">
                 <td>{{process.name}}</td>
                 <td>{{process.ID}}</td>
                 <td>{{process.user}}</td>
             </tr>
+            {% endverbatim %}
             </tbody>
         </table>
     </div>
 
-    <script src="static/helloworld/js/lib/angular.min.js"></script>
+    <script src="../static/helloworld/js/lib/angular.min.js"></script>
     <script>
         angular.module('myApp', []);
     </script>
-    <script src="static/helloworld/js/controllers/ProcessController.js"></script>
+    <script src="../static/helloworld/js/controllers/ProcessController.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ from .forms import UserForm
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "process.html")
 
 
 def process(request):
