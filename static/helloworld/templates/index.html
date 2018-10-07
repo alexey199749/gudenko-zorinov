@@ -1,0 +1,23 @@
+<!doctype html>
+{% load staticfiles %}
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body ng-controller="processController as vm">
+    <div class="page-header">
+        <h1>Процессы</h1>
+    </div>
+    <div class="panel">
+        <input type="text" ng-model="vm.processes[0].name"/>
+        <p ng-bind="vm.processes[0].name"></p>
+    </div>
+
+    <script src="static/helloworld/js/lib/angular.min.js"></script>
+    <script>
+        angular.module('myApp', []);
+    </script>
+    <script src="static/helloworld/js/controllers/ProcessController.js"></script>
+</body>
+</html>
