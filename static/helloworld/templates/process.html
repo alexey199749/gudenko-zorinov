@@ -1,0 +1,37 @@
+<!doctype html>
+{% load staticfiles %}
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body ng-controller="processController as vm">
+    <div class="page-header">
+        <h1>Процессы</h1>
+    </div>
+    <div class="panel">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>ID</th>
+                <th>Пользователь</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="process in vm.processes">
+                <td>{{process.name}}</td>
+                <td>{{process.ID}}</td>
+                <td>{{process.user}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="static/helloworld/js/lib/angular.min.js"></script>
+    <script>
+        angular.module('myApp', []);
+    </script>
+    <script src="static/helloworld/js/controllers/ProcessController.js"></script>
+</body>
+</html>

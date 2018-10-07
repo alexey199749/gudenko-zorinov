@@ -8,8 +8,8 @@ def index(request):
     return render(request, "index.html")
 
 
-def users(request, name="guest"):
-    return HttpResponse("Hello {0}!".format(name))
+def process(request):
+    return render(request, "process.html")
 
 
 def form(request):
@@ -19,3 +19,7 @@ def form(request):
         return HttpResponse("Hello {0}!".format(name))
     elif request.method == "GET":
         return render(request, "form.html", {"form": UserForm()})
+
+
+def users(request, name="guest"):
+    return HttpResponse("Hello {0}!".format(name))
