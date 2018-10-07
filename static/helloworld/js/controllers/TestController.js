@@ -1,5 +1,5 @@
 let myApp=angular.module('myApp');
-myApp.controller('processController', function() {
+myApp.controller('testController', function() {
     this.processes = [
         {
             name: 'Google Chrome',

@@ -9,8 +9,7 @@ def index(request):
 
 
 def users(request, name="guest"):
-    output = "Hello {0}!".format(name)
-    return HttpResponse(output)
+    return HttpResponse("Hello {0}!".format(name))
 
 
 def form(request):
