@@ -2,6 +2,6 @@ from django import forms
 
 
 class UserForm(forms.Form):
-    name = forms.CharField(label="Имя", localize="left")
-    age = forms.IntegerField(label="Возраст")
-    url = forms.URLField()
+    process = forms.CharField(max_length=10)
+    ID = forms.IntegerField(required=False, min_value=1)
+    user = forms.CharField(required=False)

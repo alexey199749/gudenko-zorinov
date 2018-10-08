@@ -13,12 +13,13 @@ def process(request):
 
 
 def form(request):
+    userform = UserForm()
     if request.method == "POST":
-        name = request.POST.get("name")
-        age = request.POST.get("age")
-        return HttpResponse("Hello {0}!".format(name))
-    elif request.method == "GET":
-        return render(request, "form.html", {"form": UserForm()})
+        userform = UserForm(request.POST)
+        if userform.is_valid():
+            process = userform.cleaned_data["process"]
+            return HttpResponse("Hello {0}".format(process))
+    return render(request, "form.html", {"form": userform})
 
 
 def users(request, name="guest"):
