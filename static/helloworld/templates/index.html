@@ -1,22 +1,46 @@
-<!doctype html>
-<html ng-app="myApp">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-<body ng-controller="processController as vm">
+<body class="container">
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите id</label><br>
+            <input type="number" name="proc_id" />
+        </p>
+        <p>
+            <label>Введите имя процесса</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите имя пользователя</label><br>
+            <input type="text" name="user" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if processes.count > 0 %}
     <div class="page-header">
         <h1>Процессы</h1>
     </div>
     <div class="panel">
-        <input type="text" ng-model="vm.processes[0].name"/>
-        <p ng-bind="vm.processes[0].name"></p>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Имя</th>
+                <th>Возраст</th>
+            </tr>
+            {% for process in processes %}
+            <tr>
+                <td>{{ process.proc_id }}</td>
+                <td>{{ process.name }}</td>
+                <td>{{ process.user }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
-
-    <script src="/static/helloworld/js/lib/angular.min.js"></script>
-    <script>
-        angular.module('myApp', []);
-    </script>
-    <script src="/static/helloworld/js/controllers/ProcessController.js"></script>
+    {% endif %}
 </body>
 </html>
