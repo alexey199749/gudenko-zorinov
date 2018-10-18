@@ -29,14 +29,15 @@
         <table class="table">
             <tr>
                 <th>Id</th>
-                <th>Имя</th>
-                <th>Возраст</th>
+                <th>Процесс</th>
+                <th>Пользователь</th>
             </tr>
             {% for process in processes %}
             <tr>
                 <td>{{ process.proc_id }}</td>
                 <td>{{ process.name }}</td>
                 <td>{{ process.user }}</td>
+                <td><a href="edit/{{process.id}}/">Изменить</a> | <a href="delete/{{process.id}}/">Удалить</a></td>
             </tr>
             {% endfor %}
         </table>

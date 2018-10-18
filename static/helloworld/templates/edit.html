@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Модели в Django</title>
+</head>
+<body class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите id</label><br>
+            <input type="number" name="proc_id" />
+        </p>
+        <p>
+            <label>Введите имя процесса</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите имя пользователя</label><br>
+            <input type="text" name="user" />
+        </p>
+        <input type="submit" value="Сохранить" />
+    </form>
+</body>
+</html>
