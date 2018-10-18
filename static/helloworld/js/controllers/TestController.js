@@ -1,6 +1,6 @@
 let myApp=angular.module('myApp');
-myApp.controller('testController', function() {
-    this.processes = [
+myApp.controller('TestController', ['$scope', '$location', function($scope, $location) {
+    $scope.processes = [
         {
             name: 'Google Chrome',
             ID: 1000,
@@ -16,5 +16,8 @@ myApp.controller('testController', function() {
             ID: 1002,
             user: 'System'
         }
-    ]
-});
+    ];
+    $scope.change = function(url) {
+        $location.path(url);
+    }
+}]);
