@@ -5,7 +5,11 @@ from .forms import UserForm
 
 
 def index(request):
-    return render(request, "index.html")
+    if request.method == "POST":
+        test = request.POST.get("test")
+        return HttpResponse("Hello {0}!".format(test))
+    elif request.method == "GET":
+        return render(request, "index.html")
 
 
 def process(request):

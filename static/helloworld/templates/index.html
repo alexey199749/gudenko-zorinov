@@ -5,10 +5,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body ng-controller="TestController">
-    <div class="panel">
-        <input type="text" ng-model="processes[0].name" ng-change="change(processes[0].name)"/>
-        <p ng-bind="processes[0].name"></p>
-    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="panel">
+            <input type="text" ng-model="processes[0].name" ng-change="change(processes[0].name)"/>
+            <p ng-bind="processes[0].name"></p>
+        </div>
+    </form>
 
     <script src="/static/helloworld/js/lib/angular.min.js"></script>
     <script>

@@ -1,5 +1,5 @@
 let myApp=angular.module('myApp');
-myApp.controller('TestController', ['$scope', '$location', function($scope, $location) {
+myApp.controller('TestController', ['$scope', '$location', '$http', function($scope, $location, $http) {
     $scope.processes = [
         {
             name: 'Google Chrome',
@@ -18,6 +18,18 @@ myApp.controller('TestController', ['$scope', '$location', function($scope, $loc
         }
     ];
     $scope.change = function(url) {
-        $location.path(url);
+        var req = {
+            method: 'POST',
+            url: 'http://127.0.0.1:8000',
+            headers: {
+                'Content-Type': undefined
+            },
+            data: { test: 'test' }
+        };
+        $http(req).then(function successCallback(response) {
+            alert('hello');
+        }, function errorCallback(response) {
+            alert('error');
+        })
     }
 }]);
